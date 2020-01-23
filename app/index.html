@@ -1,0 +1,36 @@
+<!Doctype html>
+<html>
+<head>
+	<script type="text/javascript">
+		window.addEventListener("native_api_ready", nativeAPIReady);
+		function nativeAPIReady(event) {
+		
+			var bluetooth = galel.NativeContext.createObject("com.silverbrain.ne.Bluetooth");
+			bluetooth.addEventListener("abc", {accept:function() {
+				console.log("timer completed from JS");
+				}
+			});
+			console.log(bluetooth);
+			bluetooth.print("JS");
+			//console.log(file.getAbsolutePath());
+			//console.log(file.getParentFile().list());
+		}
+		
+		function selectFolder() {
+			var file = new galel.File();
+			var folder = file.browseForDirectory("Choose...");
+			console.log(folder.getAbsolutePath());
+		}
+		
+		function exit() {
+			galel.NativeApplication.getApplicationInstance().exit();
+		}
+	</script>
+	<script type="text/javascript" src="../js/galel.js"></script>
+</head>
+<body>
+	<h1>Hello</h1>
+	<button onclick="selectFolder();">Select Folder</button>
+</body>
+</html>
+}
