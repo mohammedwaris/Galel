@@ -1,1 +1,1 @@
-"# Galel" 
+# Galel
